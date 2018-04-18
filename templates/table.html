@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    {% if error %}
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-danger">{{ error }}</div>
+            </div>
+        </div>
+    {% else %}
+        <table class="table">
+            <thead>
+            <td>Project</td>
+            {% for user in users %}
+                <td>{{ user }}</td>
+            {% endfor %}
+            </thead>
+            <tbody>
+            {% for row in rows %}
+                <tr>
+                {% for elem in row %}
+                    <td>{{ elem }}</td>
+                {% endfor %}
+                </tr>
+            {% else %}
+                <tr><td><label>No data for this date</label></td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {% endif %}
+</body>
+</html>
